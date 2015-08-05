@@ -2,7 +2,7 @@
     "API": {
         "Port": 8080,
         "Secret": "",
-        "Debug": false
+        "Debug": true
     },
     "Server": {
         "Win64": "C:\\ARK\\ShooterGame\\Binaries\\Win64",

@@ -91,10 +91,20 @@ app.get('/rcon/:command', function(req, res) {
     });
 });
 
+app.get('/timers', function(req, res) {
+   Scheduler.GetTimers(function(timers) {
+       res.json(timers);
+   })
+});
+
 app.get('/test', function(req, res) {
-    Steam.UpdateAvailable(function(update) {
-        res.json(update);
-    })
+    res.json({
+        "current": "192.1",
+        "upcoming": {
+            "version": "193.0",
+            "status": "ETA: Wednesday 7:30AM EDT, STATUS: REVIEWING RELEASE CANDIDATE"
+        }
+    });
 });
 
 Config.Init(function() {
