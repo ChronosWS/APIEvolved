@@ -97,16 +97,6 @@ app.get('/timers', function(req, res) {
    })
 });
 
-app.get('/test', function(req, res) {
-    res.json({
-        "current": "192.1",
-        "upcoming": {
-            "version": "193.0",
-            "status": "ETA: Wednesday 7:30AM EDT, STATUS: REVIEWING RELEASE CANDIDATE"
-        }
-    });
-});
-
 Config.Init(function() {
     Config.Load(function(config) {
 
