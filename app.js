@@ -2,7 +2,7 @@ var express     = require('express');
 var app         = express();
 var bodyParser  = require('body-parser');
 var Logger      = require('./lib/Log');
-var config      = require('./lib/Config');
+var Config      = require('./lib/Config');
 var Server      = require('./lib/Server');
 var RCON        = require('./lib/RCON');
 var ARKBar      = require('./lib/ARKBar');
@@ -10,7 +10,6 @@ var Query       = require('./lib/Query');
 var Steam       = require('./lib/Steam');
 var Scheduler   = require('./lib/Scheduler');
 var spawn       = require('child_process').spawn;
-var Config      = {};
 var router      = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -98,16 +97,18 @@ app.get('/test', function(req, res) {
     })
 });
 
-config.Load(function(data) {
+Config.Init(function() {
+    Config.Load(function(config) {
 
-    Config = data;
+        app.listen(config.API.Port);
+        Logger.log('info', 'Accessible by http://localhost:' + config.API.Port);
 
-    app.listen(Config.API.Port);
-    Logger.log('info', 'Accessible by http://localhost:' + Config.API.Port);
+        Server.Init();
 
-    Server.Init();
+        setTimeout(function() {
+            Scheduler.Init(Server);
+        }, 1000);
 
-    setTimeout(function() {
-        Scheduler.Init(Server);
-    }, 3000);
+    });
 });
+
