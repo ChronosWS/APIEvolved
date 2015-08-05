@@ -18,11 +18,17 @@
       "Validate": false,
       "OnlyMajor": true
     },
-    "Restart": [
-      "00:00",
-      "10:00",
-      "17:30"
-    ]
+    "Scheduler": {
+      "Restart": [
+        "00:00",
+        "10:00",
+        "17:30"
+      ],
+      "Broadcast": [
+        {"time": "18:00", "message": "This server is running APIEvolved"},
+        {"time": "22:00", "message": "This server is running APIEvolved"}
+      ]
+    }
   },
   "SteamCMD": "C:\\ARK\\SteamCMD\\steamcmd.exe"
 }
