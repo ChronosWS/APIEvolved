@@ -1,8 +1,8 @@
 {
   "API": {
     "Port": 8080,
-    "Secret": "Khtvg72eVJ",
-    "Debug": true
+    "Secret": "",
+    "Debug": false
   },
   "Server": {
 
