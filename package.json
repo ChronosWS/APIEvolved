@@ -1,0 +1,22 @@
+{
+  "name": "APIEvolved",
+  "description": "Web API for ARK: Survival Evolved for querying your own server, with tribe data, player data and scheduled restarts.",
+  "author": "Xstasy <daniel@ark.bar>",
+  "license": "MIT",
+  "repository": "https://github.com/Xstasy/APIEvolved",
+
+  "version": "0.0.1",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.13.0",
+    "body-parser": "~1.13.0",
+    "gamedig": "~0.2.0",
+    "ps-node": "~0.0.0",
+    "later": "~1.1.0",
+    "ini": "~1.3.0",
+    "simple-rcon": "~0.2.0",
+    "humanize-duration": "~3.2.0",
+    "winston": "~1.0.0",
+    "request": "~2.60.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "API": {
+    "Port": 8080,
+    "Secret": "Khtvg72eVJ",
+    "Debug": true
+  },
+  "Server": {
+
+    "Win64": "C:\\ARK\\ShooterGame\\Binaries\\Win64",
+    "Params": "TheIsland?MaxPlayers=10?listen -nosteamclient -game -server -log",
+
+    "Backup": {
+      "Enabled": true,
+      "Minutes": 30,
+      "Directory": "C:\\ARK\\Backups"
+    },
+
+    "AutoStart": true,
+
+    "AutoUpdate": {
+      "Enabled": true,
+      "Validate": false,
+      "OnlyMajor": true
+    },
+
+    "Restart": [
+      "00:00",
+      "10:00",
+      "11:14",
+      "17:30"
+    ]
+
+  },
+  "SteamCMD": "C:\\ARK\\SteamCMD\\steamcmd.exe"
+}
