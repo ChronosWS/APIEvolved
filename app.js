@@ -107,12 +107,6 @@ app.get('/timers', function(req, res) {
    })
 });
 
-app.get('/test', function(req, res) {
-    GameData.Load(function(data) {
-       res.json(data);
-    });
-});
-
 Config.Init(function() {
     Config.Load(function(config) {
 
