@@ -11,6 +11,9 @@ Made for managing/querying your ARK: Survival Evolved server running on Windows.
   - Automated Backups and compression
 
 
+### Disclaimer
+The API is currently in alpha, advertised features may be missing.
+
 ### Version
 0.0.1
 
@@ -35,8 +38,8 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
 **Clone repository into where you want it installed:**
 
-```git clone https://github.com/teamarkbar/APIEvolved.git```
-
+    git clone https://github.com/teamarkbar/APIEvolved.git
+    cd APIEvolved && npm install
 
 - Set the correct Win64 path
 - Set the path where you would like backups to reside.
