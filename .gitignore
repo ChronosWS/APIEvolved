@@ -3,3 +3,4 @@ version.json
 node_modules/
 .idea/
 config.json
+ArkData/arkdata.json
