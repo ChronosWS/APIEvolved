@@ -17,6 +17,10 @@ app.use(bodyParser.json());
 
 app.use('/', router);
 
+global.state = {
+    WaitForUpdate: false
+};
+
 // API: Status
 app.get('/', function(req, res) {
     Server.IsRunning(function(s) {
@@ -107,7 +111,7 @@ Config.Init(function() {
 
         setTimeout(function() {
             Scheduler.Init(Server);
-        }, 1000);
+        }, 50);
 
     });
 });

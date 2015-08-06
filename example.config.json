@@ -20,13 +20,13 @@
     },
     "Scheduler": {
       "Restart": [
-        "00:00",
-        "10:00",
-        "17:30"
+        {"time": "00:00", "message": "Automated restart"},
+        {"time": "10:00", "message": "Automated restart"},
+        {"time": "17:30", "message": "Automated restart"}
       ],
       "Broadcast": [
-        {"time": "18:00", "message": "This server is running APIEvolved"},
-        {"time": "22:00", "message": "This server is running APIEvolved"}
+        {"time": "12:00", "message": "This server is running with APIEvolved"},
+        {"time": "18:00", "message": "This server is running with APIEvolved"}
       ]
     }
   },
