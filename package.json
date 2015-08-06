@@ -3,7 +3,7 @@
   "description": "Web API for ARK: Survival Evolved for querying your own server, with tribe data, player data and scheduled restarts.",
   "author": "Xstasy <daniel@ark.bar>",
   "license": "MIT",
-  "repository": "https://github.com/Xstasy/APIEvolved",
+  "repository": "https://github.com/teamarkbar/APIEvolved",
 
   "version": "0.0.1",
   "main": "app.js",

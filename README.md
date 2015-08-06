@@ -27,20 +27,30 @@ APIEvolved uses a number of open source projects to work properly:
 * winston - logging
 * request - used to call ARK.Bar API
 
-And of course APIEvolved itself is open source with a [public repository](https://github.com/Xstasy/APIEvolved) on GitHub.
+And of course APIEvolved itself is open source with a [public repository](https://github.com/teamarkbar/APIEvolved) on GitHub.
 
 ### Installation
 **Prerequisites:**
 - Node v0.12 or later
 
-Download the latest zip from master, extract wherever, edit config.json:
-- Change port if you'd like
+**Clone repository into where you want it installed:**
+
+```git clone https://github.com/teamarkbar/APIEvolved.git```
+
+
 - Set the correct Win64 path
+- Set the path where you would like backups to reside.
+- Optionally change the API Port
 - Optionally set the secret for restarting / updating / rcon requests. (One will be generated if not, and will be displayed in console on first run)
 - Optionally set the Params you want the server to run with
 
 **Run with:**
 ```node app.js``` or use PM2/forever/daemon to run and start with your server.
+
+### Upgrading
+**Remember** to stop the running script, then use:
+ 
+ ```git pull``` to update.
 
 License
 ----
