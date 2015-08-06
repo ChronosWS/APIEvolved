@@ -9,7 +9,6 @@ var ARKBar      = require('./lib/ARKBar');
 var Query       = require('./lib/Query');
 var Steam       = require('./lib/Steam');
 var Scheduler   = require('./lib/Scheduler');
-var Player      = require('./lib/Player');
 var spawn       = require('child_process').spawn;
 var router      = express.Router();
 
