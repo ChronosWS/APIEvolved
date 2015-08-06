@@ -112,9 +112,6 @@ Config.Init(function() {
 
         setTimeout(function() {
             Scheduler.Init(Server);
-            Player.Parse(function() {
-
-            });
         }, 50);
 
     });
