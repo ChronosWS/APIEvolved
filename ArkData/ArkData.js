@@ -2,8 +2,8 @@ var edge = require('edge');
 var fs   = require('fs');
 
 var getData = edge.func(function() {/*
-    #r "Newtonsoft.Json.dll"
-    #r "ArkData.dll"
+    #r "ArkData/Newtonsoft.Json.dll"
+    #r "ArkData/ArkData.dll"
     using Newtonsoft.Json;
     using ArkData;
     using System.Threading.Tasks;
@@ -72,9 +72,13 @@ var getData = edge.func(function() {/*
 
  */});
 
-getData("C:\\ARK\\ShooterGame\\Saved\\SavedArks", function(error, result) {
-    var json = JSON.parse(result);
-    fs.writeFile("arkdata.json", JSON.stringify(json, null, 4), function(err) {
-        console.log(err);
+exports.Get = function(dir, callback) {
+    getData(dir, function(error, result) {
+        if(error) {
+            callback({"Players": [], "Tribes": []});
+        } else {
+            var json = JSON.parse(result);
+            callback(json);
+        }
     });
-});
+};

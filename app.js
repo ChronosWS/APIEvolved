@@ -8,6 +8,7 @@ var RCON        = require('./lib/RCON');
 var ARKBar      = require('./lib/ARKBar');
 var Query       = require('./lib/Query');
 var Steam       = require('./lib/Steam');
+var GameData    = require('./lib/GameData');
 var Scheduler   = require('./lib/Scheduler');
 var spawn       = require('child_process').spawn;
 var router      = express.Router();
@@ -19,6 +20,11 @@ app.use('/', router);
 
 global.state = {
     WaitForUpdate: false
+};
+
+global.GameData = {
+    Players: [],
+    Tribes: []
 };
 
 // API: Status
@@ -99,6 +105,12 @@ app.get('/timers', function(req, res) {
    Scheduler.GetTimers(function(timers) {
        res.json(timers);
    })
+});
+
+app.get('/test', function(req, res) {
+    GameData.Load(function(data) {
+       res.json(data);
+    });
 });
 
 Config.Init(function() {
