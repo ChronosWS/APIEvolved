@@ -22,6 +22,8 @@ The API is currently in alpha, advertised features may be missing.
 APIEvolved uses a number of open source projects to work properly:
 
 * Express - serving the API calls
+* [ArkData](https://github.com/AuthiQ/ArkData) - Parsing Tribe / Player data.
+* edge - interface C# with ArkData.
 * GameDig - doing parts of the Queries.
 * Later - scheduling
 * ini - reading the Game Configuration files
