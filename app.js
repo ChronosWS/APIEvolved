@@ -5,12 +5,9 @@ var Logger      = require('./lib/Log');
 var Config      = require('./lib/Config');
 var Server      = require('./lib/Server');
 var RCON        = require('./lib/RCON');
-var ARKBar      = require('./lib/ARKBar');
 var Query       = require('./lib/Query');
 var Steam       = require('./lib/Steam');
-var GameData    = require('./lib/GameData');
 var Scheduler   = require('./lib/Scheduler');
-var spawn       = require('child_process').spawn;
 var router      = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +23,16 @@ global.GameData = {
     Players: [],
     Tribes: []
 };
+
+function checkSecret(req, res, callback) {
+    Config.Load(function(config) {
+        if(config.API.Secret == req.params['key']) {
+            callback()
+        } else {
+            res.json({status: false, message: "Access denied, incorrect key"});
+        }
+    });
+}
 
 // API: Status
 app.get('/', function(req, res) {
@@ -55,49 +62,62 @@ app.get('/query', function(req, res) {
 });
 
 // API: Update
-app.get('/update', function (req, res) {
-    Server.Stop(function() {
-        Logger.log('info', "[Server] Stopping for update");
-        Steam.Update(function(data) {
-            Logger.log('info', "[Update] " + (data.success ? "Success" : "Failed"));
-            Server.Start(function() {
-                Logger.log('info', "[Server] Started");
-            });
-        })
+app.get('/update/:key', function (req, res) {
+    checkSecret(req, res, function() {
+        Server.Stop(function () {
+            Logger.log('info', "[Server] Stopping for update");
+            Steam.Update(function (data) {
+                Logger.log('info', "[Update] " + (data.success ? "Success" : "Failed"));
+                Server.Start(function () {
+                    Logger.log('info', "[Server] Started");
+                });
+            })
+        });
     });
 });
 
 // API: Server Start
-app.get('/start', function(req, res) {
-   Server.Start(function(game) {
-      res.json(game);
-   });
+app.get('/start/:key', function(req, res) {
+    checkSecret(req, res, function() {
+        Server.Start(function (game) {
+            res.json(game);
+        });
+    });
 });
 
 // API: Server Nice Stop
-app.get('/stop/:message', function(req, res) {
-    Server.StopNice(req.params.message, function() {});
-    res.json({status: true, message: req.params.message});
+app.get('/stop/:message/:key', function(req, res) {
+    checkSecret(req, res, function() {
+        Server.StopNice(req.params.message, function () {
+        });
+        res.json({status: true, message: req.params.message});
+    });
 });
 
 // API: Server Force Stop
-app.get('/force/stop', function(req, res) {
-    Server.Stop(function(status) {
-        res.json({status: status});
+app.get('/force/stop/:key', function(req, res) {
+    checkSecret(req, res, function() {
+        Server.Stop(function (status) {
+            res.json({status: status});
+        });
     });
 });
 
 // API: Cancel Stop
-app.get('/cancel/stop', function(req, res) {
-    Server.CancelNiceStop(function(response) {
-        res.json(response);
+app.get('/cancel/stop/:key', function(req, res) {
+    checkSecret(req, res, function() {
+        Server.CancelNiceStop(function (response) {
+            res.json(response);
+        });
     });
 });
 
 // API: RCON Command
-app.get('/rcon/:command', function(req, res) {
-    RCON.Command(req.params['command'], function(response) {
-       res.json(response);
+app.get('/rcon/:command/:key', function(req, res) {
+    checkSecret(req, res, function() {
+        RCON.Command(req.params['command'], function (response) {
+            res.json(response);
+        });
     });
 });
 
