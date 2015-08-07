@@ -15,6 +15,13 @@ app.use(bodyParser.json());
 
 app.use('/', router);
 
+// Allow Cross Origin
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 global.state = {
     WaitForUpdate: false
 };
