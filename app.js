@@ -26,6 +26,8 @@ global.state = {
     WaitForUpdate: false
 };
 
+global.QueryData = null;
+
 global.GameData = {
     Players: [],
     Tribes: []
