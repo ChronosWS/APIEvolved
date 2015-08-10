@@ -55,29 +55,7 @@ app.get('/', function(req, res) {
 
 // API: Query
 app.get('/query', function(req, res) {
-
-        Query.Run(function(data) {
-            if(data) {
-                try {
-                    res.json({
-                        online: true,
-                        server: data
-                    });
-                } catch(e) {
-                    // Ignore headers resent;
-                }
-            } else {
-                try {
-                    res.json({
-                        online: false,
-                        server: null
-                    });
-                } catch(e) {
-                    // Ignore headers resent;
-                }
-            }
-        })
-
+    res.json(global.QueryData);
 });
 
 // API: Update
