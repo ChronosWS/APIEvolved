@@ -128,9 +128,9 @@ app.get('/rcon/:command/:key', function(req, res) {
     });
 });
 
-app.get('/timers', function(req, res) {
-   Scheduler.GetTimers(function(timers) {
-       res.json(timers);
+app.get('/schedule', function(req, res) {
+   Scheduler.GetSchedule(function(schedule) {
+       res.json(schedule);
    })
 });
 
