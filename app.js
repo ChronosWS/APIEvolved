@@ -46,10 +46,14 @@ function checkSecret(req, res, callback) {
 // API: Status
 app.get('/', function(req, res) {
     Server.IsRunning(function(s) {
-        res.json({
-            Server: Config.Server,
-            Running: s
-        });
+        try {
+            res.json({
+                Server: Config.Server,
+                Running: s
+            });
+        } catch(e) {
+            // Sent data after headers were sent.
+        }
     });
 });
 
