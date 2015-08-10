@@ -53,19 +53,23 @@ app.get('/', function(req, res) {
 
 // API: Query
 app.get('/query', function(req, res) {
-    Query.Run(function(data) {
-        if(data) {
-            res.json({
-                online: true,
-                server: data
-            });
-        } else {
-            res.json({
-                online: false,
-                server: null
-            });
-        }
-    })
+    try {
+        Query.Run(function(data) {
+            if(data) {
+                res.json({
+                    online: true,
+                    server: data
+                });
+            } else {
+                res.json({
+                    online: false,
+                    server: null
+                });
+            }
+        })
+    } catch(e) {
+        // Ignore headers resent;
+    }
 });
 
 // API: Update
