@@ -128,6 +128,17 @@ app.get('/rcon/:command/:key', function(req, res) {
     });
 });
 
+// API: Get Players
+app.get('/players', function(req, res) {
+   res.json(global.GameData.Players);
+});
+
+// API: Get Tribes
+app.get('/tribes', function(req, res) {
+    res.json(global.GameData.Tribes);
+});
+
+// API: Get Schedule
 app.get('/schedule', function(req, res) {
    Scheduler.GetSchedule(function(schedule) {
        res.json(schedule);
