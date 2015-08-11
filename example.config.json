@@ -5,6 +5,7 @@
     "Debug": false
   },
   "Server": {
+    "Timezone" : "America/New_York",
     "Win64": "C:\\ARK\\ShooterGame\\Binaries\\Win64",
     "Params": "TheIsland?MaxPlayers=10?listen -nosteamclient -game -server -log",
     "Backup": {
