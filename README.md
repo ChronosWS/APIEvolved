@@ -30,10 +30,11 @@ APIEvolved uses a number of open source projects to work properly:
 * [ArkData](https://github.com/AuthiQ/ArkData) - Parsing Tribe / Player data.
 * edge - interface C# with ArkData.
 * GameDig - doing parts of the Queries.
-* Later - scheduling
+* cron - Scheduled jobs
 * ini - reading the Game Configuration files
-* simple-rcon - rcon protocol
-* humanize-duration - turns numbers into nice human readable strings
+* simple-rcon - rcon protocol (skibz/prestonp fork)
+* portscanner - used to check rcon protocol port.
+* moment - for dates
 * winston - logging
 * request - used to call ARK.Bar API
 
@@ -48,6 +49,8 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
     git clone https://github.com/teamarkbar/APIEvolved.git
     cd APIEvolved && npm install
+    
+Copy example.config.json to config.json
 
 - Set the correct Win64 path
 - Set the path where you would like backups to reside.
@@ -57,6 +60,19 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
 **Run with:**
 ```node app.js``` or use PM2/forever/daemon to run and start with your server.
+
+### Configuring
+**Scheduled Jobs**
+Available actions: Restart, Broadcast.
+
+**Cron Expression**
+The expression is in this format:
+
+seconds, minutes, hours, days, months, weekday
+
+So if you want to run a broadcast every 15 minutes:
+    0 */15 * * *
+
 
 ### Upgrading
 **Remember** to stop the running script, then use:

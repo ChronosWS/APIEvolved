@@ -5,6 +5,7 @@
     "Debug": false
   },
   "Server": {
+    "Timezone" : "America/New_York",
     "Win64": "C:\\ARK\\ShooterGame\\Binaries\\Win64",
     "Params": "TheIsland?MaxPlayers=10?listen -nosteamclient -game -server -log",
     "Backup": {
@@ -20,13 +21,13 @@
     },
     "Scheduler": {
       "Restart": [
-        {"time": "00:00", "message": "Automated restart"},
-        {"time": "10:00", "message": "Automated restart"},
-        {"time": "17:30", "message": "Automated restart"}
+        {"cron": "0 0 0 * * *", "message": "Automated restart"},
+        {"cron": "0 0 10 * * *", "message": "Automated restart"},
+        {"cron": "0 30 17 * * *", "message": "Automated restart"}
       ],
       "Broadcast": [
-        {"time": "12:00", "message": "This server is running with APIEvolved"},
-        {"time": "18:00", "message": "This server is running with APIEvolved"}
+        {"cron": "0 0 12 * * *", "message": "This server is running with APIEvolved"},
+        {"cron": "0 0 18 * * *", "message": "This server is running with APIEvolved"}
       ]
     }
   },
