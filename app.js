@@ -133,8 +133,8 @@ app.get('/tribes', function(req, res) {
 });
 
 // API: Get Schedule
-app.get('/schedule', function(req, res) {
-   Scheduler.GetSchedule(function(schedule) {
+app.get('/scheduler/jobs', function(req, res) {
+   Scheduler.GetJobs(function(schedule) {
        res.json(schedule);
    })
 });
