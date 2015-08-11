@@ -25,7 +25,7 @@ APIEvolved uses a number of open source projects to work properly:
 * [ArkData](https://github.com/AuthiQ/ArkData) - Parsing Tribe / Player data.
 * edge - interface C# with ArkData.
 * GameDig - doing parts of the Queries.
-* Later - scheduling
+* cron - Scheduled jobs
 * ini - reading the Game Configuration files
 * simple-rcon - rcon protocol
 * humanize-duration - turns numbers into nice human readable strings
