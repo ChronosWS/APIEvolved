@@ -27,7 +27,9 @@ APIEvolved uses a number of open source projects to work properly:
 * GameDig - doing parts of the Queries.
 * cron - Scheduled jobs
 * ini - reading the Game Configuration files
-* simple-rcon - rcon protocol
+* simple-rcon - rcon protocol (skibz/prestonp fork)
+* portscanner - used to check rcon protocol port.
+* moment - for dates
 * winston - logging
 * request - used to call ARK.Bar API
 

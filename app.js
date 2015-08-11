@@ -26,6 +26,10 @@ global.state = {
     WaitForUpdate: false
 };
 
+global.timers = {
+    niceStop: []
+};
+
 global.QueryData = null;
 
 global.GameData = {
