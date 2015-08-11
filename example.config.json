@@ -21,13 +21,13 @@
     },
     "Scheduler": {
       "Restart": [
-        {"cron": "0 0 * * *", "message": "Automated restart"},
-        {"cron": "0 10 * * *", "message": "Automated restart"},
-        {"cron": "30 17 * * *", "message": "Automated restart"}
+        {"cron": "0 0 0 * * *", "message": "Automated restart"},
+        {"cron": "0 0 10 * * *", "message": "Automated restart"},
+        {"cron": "0 30 17 * * *", "message": "Automated restart"}
       ],
       "Broadcast": [
-        {"cron": "0 12 * * *", "message": "This server is running with APIEvolved"},
-        {"cron": "0 18 * * *", "message": "This server is running with APIEvolved"}
+        {"cron": "0 0 12 * * *", "message": "This server is running with APIEvolved"},
+        {"cron": "0 0 18 * * *", "message": "This server is running with APIEvolved"}
       ]
     }
   },
