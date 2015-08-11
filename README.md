@@ -28,7 +28,6 @@ APIEvolved uses a number of open source projects to work properly:
 * cron - Scheduled jobs
 * ini - reading the Game Configuration files
 * simple-rcon - rcon protocol
-* html-entities - Prevents text being parsed as html
 * winston - logging
 * request - used to call ARK.Bar API
 
