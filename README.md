@@ -42,6 +42,8 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
     git clone https://github.com/teamarkbar/APIEvolved.git
     cd APIEvolved && npm install
+    
+Copy example.config.json to config.json
 
 - Set the correct Win64 path
 - Set the path where you would like backups to reside.
@@ -51,6 +53,19 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
 **Run with:**
 ```node app.js``` or use PM2/forever/daemon to run and start with your server.
+
+### Configuring
+**Scheduled Jobs**
+Available actions: Restart, Broadcast.
+
+**Cron Expression**
+The expression is in this format:
+
+seconds, minutes, hours, days, months, weekday
+
+So if you want to run a broadcast every 15 minutes:
+    0 */15 * * *
+
 
 ### Upgrading
 **Remember** to stop the running script, then use:
