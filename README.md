@@ -42,6 +42,8 @@ And of course APIEvolved itself is open source with a [public repository](https:
 
     git clone https://github.com/teamarkbar/APIEvolved.git
     cd APIEvolved && npm install
+    
+Copy example.config.json to config.json
 
 - Set the correct Win64 path
 - Set the path where you would like backups to reside.
