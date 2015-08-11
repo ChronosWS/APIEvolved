@@ -2,20 +2,25 @@
 
 Made for managing/querying your ARK: Survival Evolved server running on Windows.
 
-  - Tribe Data
-  - Player Data
-  - Server Query Data
-  - RCON Support
-  - Scheduled restarts
-  - Automated Updates
-  - Automated Backups and compression
+  - Tribe Data (working)
+  - Player Data (working)
+  - Server Query Data (working)
+  - RCON Support (working)
+  - Scheduled restarts (working)
+  - Automated Updates (working)
+  - Automated Backups and compression (work in progress)
 
 
 ### Disclaimer
 The API is currently in alpha, advertised features may be missing.
+This repository is heavily revised every day, make sure to git pull
+every once in a while.
+
+### Issues
+Please post any issues you encounter along with your api.log file
 
 ### Version
-0.0.1
+0.1.0
 
 ### Tech
 
@@ -37,6 +42,7 @@ And of course APIEvolved itself is open source with a [public repository](https:
 ### Installation
 **Prerequisites:**
 - Node v0.12 or later
+- Optionally git for windows, makes it easy to keep APIEvolved up-to-date.
 
 **Clone repository into where you want it installed:**
 
