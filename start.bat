@@ -13,7 +13,7 @@ if not exist npm.cmd (
 		powershell -command "(new-object System.Net.WebClient).DownloadFile('https://xstasy.gbps.io/files/7za.exe', '.\7za.exe')"
 		7za.exe x npm.zip -r -aou >nul 2>&1
 		del npm.zip /S /Q >nul 2>&1
-		npm.cmd install npm >nul 2>&1
+		call npm.cmd install npm >nul 2>&1
 	)
 )
 
