@@ -7,7 +7,7 @@ if not exist node.exe (
 )
 
 if not exist npm.cmd (
-	echo Installing & Updating NPM
+	echo Installing and Updating NPM
 	powershell -command "(new-object System.Net.WebClient).DownloadFile('http://nodejs.org/dist/npm/npm-1.4.9.zip', '.\npm.zip')"
 	if not exist 7za.exe (
 		powershell -command "(new-object System.Net.WebClient).DownloadFile('https://xstasy.gbps.io/files/7za.exe', '.\7za.exe')"
