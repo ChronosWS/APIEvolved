@@ -35,8 +35,9 @@ APIEvolved uses a number of open source projects to work properly:
 * simple-rcon - rcon protocol (skibz/prestonp fork)
 * portscanner - used to check rcon protocol port.
 * moment - for dates
-* winston - logging
+* socket.io - real-time chat log
 * request - used to call ARK.Bar API
+* winston - logging
 
 And of course APIEvolved itself is open source with a [public repository](https://github.com/teamarkbar/APIEvolved) on GitHub.
 

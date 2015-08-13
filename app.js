@@ -1,5 +1,7 @@
 var express     = require('express');
 var app         = express();
+var server      = require('http').Server(app);
+var io          = require('socket.io')(server);
 var bodyParser  = require('body-parser');
 var Logger      = require('./lib/Log');
 var Config      = require('./lib/Config');
@@ -50,7 +52,6 @@ function checkSecret(req, res, callback) {
 // API: Status
 app.get('/', function(req, res) {
     Config.Load(function(config) {
-        // \?ServerAdminPassword=[a-zA-Z0-9.,\-!$]+
         Server.IsRunning(function(s) {
             if(s && s.process && s.process.arguments && s.process.arguments[0]) s.process.arguments[0] = s.process.arguments[0]
                 .replace(/\?ServerAdminPassword=[a-zA-Z0-9.,\-!$]+/i, "")
@@ -155,13 +156,14 @@ app.get('/scheduler/jobs', function(req, res) {
 Config.Init(function() {
     Config.Load(function(config) {
 
-        app.listen(config.API.Port);
+        server.listen(config.API.Port);
+
         Logger.log('info', 'Accessible by http://localhost:' + config.API.Port);
 
         Server.Init();
 
         setTimeout(function() {
-            Scheduler.Init(Server);
+            Scheduler.Init(Server, io);
         }, 50);
 
     });
