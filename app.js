@@ -49,16 +49,25 @@ function checkSecret(req, res, callback) {
 
 // API: Status
 app.get('/', function(req, res) {
-    Server.IsRunning(function(s) {
-        try {
-            res.json({
-                Server: Config.Server,
-                Running: s
-            });
-        } catch(e) {
-            // Sent data after headers were sent.
-        }
-    });
+    Config.Load(function(config) {
+        // \?ServerAdminPassword=[a-zA-Z0-9.,\-!$]+
+        Server.IsRunning(function(s) {
+            if(s && s.process && s.process.arguments && s.process.arguments[0]) s.process.arguments[0] = s.process.arguments[0]
+                .replace(/\?ServerAdminPassword=[a-zA-Z0-9.,\-!$]+/i, "")
+                .replace(/\?ServerPassword=[a-zA-Z0-9.,\-!$]+/i, "");
+            if(config && config.Server && config.Server.Params) config.Server.Params =  config.Server.Params
+                .replace(/\?ServerAdminPassword=[a-zA-Z0-9.,\-!$]+/i, "")
+                .replace(/\?ServerPassword=[a-zA-Z0-9.,\-!$]+/i, "");
+            try {
+                res.json({
+                    Server: config.Server,
+                    Running: s
+                });
+            } catch(e) {
+                // Sent data after headers were sent.
+            }
+        });
+    })
 });
 
 // API: Query
