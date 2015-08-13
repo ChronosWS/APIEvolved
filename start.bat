@@ -30,9 +30,9 @@ if not exist 7za.exe (
 powershell -command "(new-object System.Net.WebClient).DownloadFile('https://github.com/teamarkbar/APIEvolved/archive/master.zip', '.\update.zip')"
 7za.exe x update.zip -r -aou >nul 2>&1
 XCOPY .\APIEvolved-master\* . /Y /S /Q >nul 2>&1
-del update.zip /S /Q >nul 2>&1
 rd .\APIEvolved-master /S /Q >nul 2>&1
 del 7za.exe /S /Q >nul 2>&1
+del update.zip /S /Q >nul 2>&1
 echo Updating Dependencies
 call npm.cmd install >nul 2>&1
 goto:start
