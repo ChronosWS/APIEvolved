@@ -41,14 +41,10 @@ APIEvolved uses a number of open source projects to work properly:
 And of course APIEvolved itself is open source with a [public repository](https://github.com/teamarkbar/APIEvolved) on GitHub.
 
 ### Installation
-**Prerequisites:**
-- Node v0.12 or later
-- Optionally git for windows, makes it easy to keep APIEvolved up-to-date.
 
-**Clone repository into where you want it installed:**
+Download [latest zip](https://github.com/teamarkbar/APIEvolved/archive/master.zip) from git
 
-    git clone https://github.com/teamarkbar/APIEvolved.git
-    cd APIEvolved && npm install
+Extract wherever you want
     
 Copy example.config.json to config.json
 
@@ -58,8 +54,7 @@ Copy example.config.json to config.json
 - Optionally set the secret for restarting / updating / rcon requests. (One will be generated if not, and will be displayed in console on first run)
 - Optionally set the Params you want the server to run with
 
-**Run with:**
-```node app.js``` or use PM2/forever/daemon to run and start with your server.
+**Run start.bat**
 
 ### Configuring
 **Scheduled Jobs**
@@ -73,16 +68,6 @@ seconds, minutes, hours, days, months, weekday
 So if you want to run a broadcast every 15 minutes:
     0 */15 * * *
 
-
-### Upgrading
-**Remember** to stop the running script, then use:
- 
- ```git pull``` to update.
-
 License
 ----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
+MIT **Free Software, Hell Yeah!**
