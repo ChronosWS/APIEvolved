@@ -73,12 +73,18 @@ var getData = edge.func(function() {/*
  */});
 
 exports.Get = function(dir, callback) {
+    var self = this;
     getData(dir, function(error, result) {
         if(error) {
             callback({"Players": [], "Tribes": []});
         } else {
-            var json = JSON.parse(result);
-            callback(json);
+            try {
+                var json = JSON.parse(result);
+                callback(json);
+            } catch(e) {
+                self.Get(dir, callback);
+            }
+
         }
     });
 };
