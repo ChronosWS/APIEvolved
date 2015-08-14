@@ -158,14 +158,18 @@ Config.Init(function() {
 
         server.listen(config.API.Port);
 
-        Logger.log('info', 'Accessible by http://localhost:' + config.API.Port);
+        Steam.UpdateSteamCMD(function (success) {
+            if(success)
+            {
+                Logger.log('info', 'Accessible by http://localhost:' + config.API.Port);
 
-        Server.Init();
+                Server.Init();
 
-        setTimeout(function() {
-            Scheduler.Init(Server, io);
-        }, 50);
-
+                setTimeout(function () {
+                    Scheduler.Init(Server, io);
+                }, 50);
+            }
+        });
     });
 });
 
