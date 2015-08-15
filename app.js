@@ -153,6 +153,13 @@ app.get('/scheduler/jobs', function(req, res) {
    })
 });
 
+// catch the uncaught errors that weren't wrapped in a domain or try catch statement
+// do not use this in modules, but only in applications, as otherwise we could have multiple of these bound
+process.on('uncaughtException', function (err) {
+    // handle the error safely
+    Logger.log('error', 'Uncaught exception: ' + err);
+})
+
 Config.Init(function() {
     Config.Load(function(config) {
 

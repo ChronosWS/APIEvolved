@@ -5,3 +5,7 @@ node_modules/
 config.json
 ArkData/arkdata.json
 *~
+npm.cmd
+node.exe
+.suo
+
